@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+ 
+ <ItemGroup>
+    <PackageReference Include="Google.Apis" Version="1.44.1" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.44.1" />
+    <PackageReference Include="Google.Apis.Sheets.v4" Version="1.44.1.1895" />
+    <PackageReference Include="Google.Apis.YouTube.v3" Version="1.44.1.1869" />
+   
+<Content Include="testproject-272509-4442d89021d2.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+  </ItemGroup>
+
+</Project>
