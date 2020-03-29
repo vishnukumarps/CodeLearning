@@ -28,6 +28,10 @@ namespace Google_external_login_setup_in_ASP.NETCore.Infrastructure
             });
 
 
+      //      services.AddDefaultIdentity<IdentityUser>()
+      //.AddRoles<IdentityRole>() // <--------
+      //.AddDefaultUI(UIFramework.Bootstrap4)
+      //.AddEntityFrameworkStores<ApplicationDbContext>();
             return services;
         }
 
