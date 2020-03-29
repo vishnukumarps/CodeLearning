@@ -11,6 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeTestApp", "CodeTestApp\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeTestWebApp", "CodeTestWebApp\CodeTestWebApp.csproj", "{1B8B8835-83CB-4789-9002-977ED1C705AA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F2DB3D08-B7B7-4D0D-A902-5632ED62ADCC}"
+	ProjectSection(SolutionItems) = preProject
+		LinksAndDescriptions.txt = LinksAndDescriptions.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
