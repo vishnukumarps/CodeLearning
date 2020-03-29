@@ -1,4 +1,6 @@
-﻿using MongoDB.Bson;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Google_external_login_setup_in_ASP.NETCore.Controllers.Models
 {
-    public class User
+    public class User:IdentityUser
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -30,6 +32,10 @@ namespace Google_external_login_setup_in_ASP.NETCore.Controllers.Models
 
         [BsonElement("Remarks")]
         public string Remarks { get; set; }
+    
+        [BsonElement("ReturnUrl")]
+        public string ReturnUrl { get; set; }
 
+        public IList<AuthenticationScheme> ExternalLogins { get; set; }
     }
 }

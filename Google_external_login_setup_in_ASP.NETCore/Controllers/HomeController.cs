@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 using Google_external_login_setup_in_ASP.NETCore.Models;
 using Google_external_login_setup_in_ASP.NETCore.Controllers.Models;
 using Google_external_login_setup_in_ASP.NETCore.IRepository;
-
+using Microsoft.AspNetCore.Identity;
 namespace Google_external_login_setup_in_ASP.NETCore.Controllers
 {
     public class HomeController : Controller
@@ -16,14 +16,19 @@ namespace Google_external_login_setup_in_ASP.NETCore.Controllers
 
         //UserLogic user = new UserLogic();
         private readonly IUserRepository _userBusinessService;
+
+        private readonly SignInManager<IdentityUser> _signInManager;
+
+     
         public HomeController(IUserRepository _userBusinessService)
         {
             this._userBusinessService = _userBusinessService;
+         
         }
 
         public IActionResult Index(string msg)
         {
-
+           
             return View(msg);
         }
 
@@ -34,13 +39,18 @@ namespace Google_external_login_setup_in_ASP.NETCore.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login()
+        public async Task<IActionResult> LoginAsync(string returnUrl)
         {
+            User user = new User()
+            {
+                ReturnUrl = returnUrl,
+                ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
+            };
 
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Login(string Email, string Password, string Key)
+        public async Task<IActionResult> Login(string Email, string Password, string returnUrl)
         {
             //var result = await _userBusinessService.Login(Email, Password, Key);
             //if (result == true)

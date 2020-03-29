@@ -5,6 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNet.Identity.MongoDB" Version="2.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.3" />
+    <PackageReference Include="MongoDB.AspNet.Identity" Version="1.0.5" />
     <PackageReference Include="MongoDB.Driver" Version="2.10.2" />
     <PackageReference Include="MongoDB.Driver.Core" Version="2.10.2" />
   </ItemGroup>
