@@ -9,10 +9,15 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Model;
+using Microsoft.Extensions.DependencyInjection;
+using IdentityRole = Microsoft.AspNetCore.Identity.IdentityRole;
+using IdentityUser = Microsoft.AspNetCore.Identity.IdentityUser;
 
 namespace GooglEexternalLoginSqlserver
 {
@@ -32,9 +37,47 @@ namespace GooglEexternalLoginSqlserver
             services.AddSingleton<IUserDataService, UserDataService>();
             services.AddTransient<IUserDataService, UserDataService>();
 
-            services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<DataBaseContext>();
 
+
+
+
+
+
+
+
+
+            var x = services.AddDbContextPool<DataBaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConString")));
+
+            services.AddIdentity<IdentityUser, IdentityRole>(cfg =>
+            {
+                cfg.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<DataBaseContext>();
+            services.AddAuthentication()
+            .AddGoogle(options => {
+                options.ClientId = "756588286238-9bdrpot743562nj1bp0mkdkq1cmn9uqo.apps.googleusercontent.com";
+                options.ClientSecret = "YU-NcG4w96QAI1kFyaVG-gx4";
+               // options.CallbackPath = "";
+            });
+            services.AddMvc();
+
+
+
+
+
+            //     services.AddIdentity<IdentityUser, IdentityRole>()
+            //.AddEntityFrameworkStores<DataBaseContext>();
+            //.AddDefaultTokenProviders();
+
+            //    services.AddIdentityServer()
+            //        .AddAspNetIdentity<User>();
+
+            //    services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            //    {
+            //        options.User.RequireUniqueEmail = false;
+            //    })
+            // .AddEntityFrameworkStores<DataBaseContext>()
+            //.AddDefaultTokenProviders();
+            services.AddLogging();
 
 
         }
@@ -63,7 +106,7 @@ namespace GooglEexternalLoginSqlserver
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }

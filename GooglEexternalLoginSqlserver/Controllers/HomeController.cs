@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using GooglEexternalLoginSqlserver.Models;
 using Model;
 using DAL.Interfaces;
+using Microsoft.AspNetCore.Identity;
 
 namespace GooglEexternalLoginSqlserver.Controllers
 {
@@ -17,17 +18,21 @@ namespace GooglEexternalLoginSqlserver.Controllers
         //UserLogic user = new UserLogic();
 
         private readonly IUserDataService userDataService;
-
-        public HomeController(IUserDataService userDataService)
+     //   private readonly UserManager<IdentityUser> userManager;
+        private readonly SignInManager<MyUser> signInManager;
+        public HomeController(IUserDataService userDataService,
+            SignInManager<MyUser> signInManager
+           /* UserManager<IdentityUser> userManager*/)
         {
-
+            this.signInManager = signInManager;
+         //  this.userManager = userManager;
             this.userDataService = userDataService;
         }
 
-        public IActionResult Index(string msg)
+        public IActionResult Index()
         {
 
-            return View(msg);
+            return View();
         }
 
         public IActionResult Fail()
@@ -67,18 +72,47 @@ namespace GooglEexternalLoginSqlserver.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(User newUser)
+        public async Task<IActionResult> Register(MyUser model )
         {
-
-
-            var result = await userDataService.AddUser(newUser);
-
-            if (result != null)
+            if (ModelState.IsValid)
             {
+                // Copy data from RegisterViewModel to IdentityUser
+                var user = new IdentityUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email
+                };
+
+                // Store user data in AspNetUsers database table
+               // var result1 = await userManager.CreateAsync(user, model.Password);
+
+                // If user is successfully created, sign-in the user using
+                // SignInManager and redirect to index action of HomeController
                 return RedirectToAction("Success", "Home", new { msg = "Success" });
+                //if (result1.Succeeded)
+                //{
+                //    await signInManager.SignInAsync(user, isPersistent: false);
+                //    return RedirectToAction("Success", "Home", new { msg = "Success" });
+                //}
+
+                // If there are any errors, add them to the ModelState object
+                // which will be displayed by the validation summary tag helper
+                //foreach (var error in result1.Errors)
+                //{
+                //    ModelState.AddModelError(string.Empty, error.Description);
+                //}
             }
 
-            return RedirectToAction("Fail", "Home", new { msg = "Success" });
+            return View(model);
+
+            //var result = await userDataService.AddUser(newUser);
+
+            //if (result != null)
+            //{
+            //    return RedirectToAction("Success", "Home", new { msg = "Success" });
+            //}
+
+            //return RedirectToAction("Fail", "Home", new { msg = "Success" });
         }
     }
 }
