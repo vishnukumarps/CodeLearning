@@ -38,20 +38,13 @@ namespace GooglEexternalLoginSqlserver
             services.AddTransient<IUserDataService, UserDataService>();
 
 
-
-
-
-
-
-
-
-
-            var x = services.AddDbContextPool<DataBaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConString")));
+           var x = services.AddDbContextPool<DataBaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConString")));
 
             services.AddIdentity<IdentityUser, IdentityRole>(cfg =>
             {
                 cfg.User.RequireUniqueEmail = true;
             }).AddEntityFrameworkStores<DataBaseContext>();
+           
             services.AddAuthentication()
             .AddGoogle(options => {
                 options.ClientId = "756588286238-9bdrpot743562nj1bp0mkdkq1cmn9uqo.apps.googleusercontent.com";

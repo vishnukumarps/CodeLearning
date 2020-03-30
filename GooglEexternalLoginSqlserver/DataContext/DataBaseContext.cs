@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DAL.DataContext
 {
-    public class DataBaseContext: IdentityDbContext<MyUser, MyUserRole, string>
+    public class DataBaseContext: IdentityDbContext
     {
         public class OptionBuild
         {
