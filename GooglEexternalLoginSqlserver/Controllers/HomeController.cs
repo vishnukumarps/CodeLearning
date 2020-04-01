@@ -18,14 +18,14 @@ namespace GooglEexternalLoginSqlserver.Controllers
         //UserLogic user = new UserLogic();
 
         private readonly IUserDataService userDataService;
-     //   private readonly UserManager<IdentityUser> userManager;
-        private readonly SignInManager<MyUser> signInManager;
+        private readonly UserManager<IdentityUser> userManager;
+        private readonly SignInManager<User> signInManager;
         public HomeController(IUserDataService userDataService,
-            SignInManager<MyUser> signInManager
-           /* UserManager<IdentityUser> userManager*/)
+            SignInManager<User> signInManager,
+            UserManager<IdentityUser> userManager)
         {
             this.signInManager = signInManager;
-         //  this.userManager = userManager;
+           this.userManager = userManager;
             this.userDataService = userDataService;
         }
 
@@ -72,7 +72,7 @@ namespace GooglEexternalLoginSqlserver.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(MyUser model )
+        public async Task<IActionResult> Register(User model )
         {
             if (ModelState.IsValid)
             {

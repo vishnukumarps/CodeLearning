@@ -44,13 +44,24 @@ namespace GooglEexternalLoginSqlserver
             {
                 cfg.User.RequireUniqueEmail = true;
             }).AddEntityFrameworkStores<DataBaseContext>();
-           
+
+            //services.AddAuthentication()
+            //.AddGoogle(options => {
+            //    options.ClientId = "756588286238-9bdrpot743562nj1bp0mkdkq1cmn9uqo.apps.googleusercontent.com";
+            //    options.ClientSecret = "YU-NcG4w96QAI1kFyaVG-gx4";
+            //   // options.CallbackPath = "";
+            //});
+
             services.AddAuthentication()
-            .AddGoogle(options => {
-                options.ClientId = "756588286238-9bdrpot743562nj1bp0mkdkq1cmn9uqo.apps.googleusercontent.com";
-                options.ClientSecret = "YU-NcG4w96QAI1kFyaVG-gx4";
-               // options.CallbackPath = "";
-            });
+     .AddGoogle(options =>
+     {
+         IConfigurationSection googleAuthNSection =
+             Configuration.GetSection("Authentication:Google");
+
+         options.ClientId = "441927107790-vjc4lo2g2i3tvdmagijleld5i7ank30p.apps.googleusercontent.com";
+         options.ClientSecret = "1Lom9E1mObephg5OOir39VOc";
+         options.CallbackPath = "/signin-google";
+     });
             services.AddMvc();
 
 

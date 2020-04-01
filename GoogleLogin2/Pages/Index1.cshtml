@@ -1,0 +1,20 @@
+﻿@page
+@model GoogleLogin2.Pages.Index1Model
+@{
+}
+<h1>Success</h1>
+
+
+<a href="#" onclick="signOut();return false;" class="btn btn-primary">Sign out</a>
+<script>
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+            location.replace("https://localhost:44373/Index1");
+        });
+    }
+</script>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="323758604913-0v1llhmesqhmtqrm4o314c8506o5hehc.apps.googleusercontent.com">
