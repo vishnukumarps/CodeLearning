@@ -22,11 +22,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GooglEexternalLoginSqlserve
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoogleLogin", "GoogleLogin\GoogleLogin.csproj", "{306AC9F4-61CA-46C8-8E41-A8F2AC5079EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleLogin2", "GoogleLogin2\GoogleLogin2.csproj", "{80F389E0-04DE-499A-9957-6B53B3F23887}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoogleLogin2", "GoogleLogin2\GoogleLogin2.csproj", "{80F389E0-04DE-499A-9957-6B53B3F23887}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{E0C8EE13-550E-4C6F-B41F-C22A177A2C42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{E0C8EE13-550E-4C6F-B41F-C22A177A2C42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test2", "Test2\Test2.csproj", "{BD6D8D9B-6A91-4613-9868-0DB3D3A18B0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test2", "Test2\Test2.csproj", "{BD6D8D9B-6A91-4613-9868-0DB3D3A18B0A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AjaxLearning", "AjaxLearning\AjaxLearning.csproj", "{B1FD72E8-D8B5-4601-9A2F-C3D44FF53624}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoogleDriveIntegration", "GoogleDriveIntegration\GoogleDriveIntegration.csproj", "{F81D4F25-7659-4070-A605-C394F49B424B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DropBoxIntegration", "DropBoxIntegration\DropBoxIntegration.csproj", "{C7AEE9E7-B750-41CB-BC11-BA914290CC35}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnDriveIntegration", "OnDriveIntegration\OnDriveIntegration.csproj", "{B7FCAAEB-6B8C-4777-8293-840A22A6BE64}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "graphconsoleapp", "graphconsoleapp\graphconsoleapp.csproj", "{10F9B1E3-0C7A-4B5B-BF21-C4889EE4F77D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,6 +84,26 @@ Global
 		{BD6D8D9B-6A91-4613-9868-0DB3D3A18B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD6D8D9B-6A91-4613-9868-0DB3D3A18B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD6D8D9B-6A91-4613-9868-0DB3D3A18B0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1FD72E8-D8B5-4601-9A2F-C3D44FF53624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1FD72E8-D8B5-4601-9A2F-C3D44FF53624}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1FD72E8-D8B5-4601-9A2F-C3D44FF53624}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1FD72E8-D8B5-4601-9A2F-C3D44FF53624}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F81D4F25-7659-4070-A605-C394F49B424B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F81D4F25-7659-4070-A605-C394F49B424B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F81D4F25-7659-4070-A605-C394F49B424B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F81D4F25-7659-4070-A605-C394F49B424B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7AEE9E7-B750-41CB-BC11-BA914290CC35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7AEE9E7-B750-41CB-BC11-BA914290CC35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7AEE9E7-B750-41CB-BC11-BA914290CC35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7AEE9E7-B750-41CB-BC11-BA914290CC35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7FCAAEB-6B8C-4777-8293-840A22A6BE64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7FCAAEB-6B8C-4777-8293-840A22A6BE64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7FCAAEB-6B8C-4777-8293-840A22A6BE64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7FCAAEB-6B8C-4777-8293-840A22A6BE64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10F9B1E3-0C7A-4B5B-BF21-C4889EE4F77D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10F9B1E3-0C7A-4B5B-BF21-C4889EE4F77D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10F9B1E3-0C7A-4B5B-BF21-C4889EE4F77D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10F9B1E3-0C7A-4B5B-BF21-C4889EE4F77D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

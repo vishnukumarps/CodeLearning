@@ -1,0 +1,116 @@
+﻿hi
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "/api/StudentApi/GetStudents",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                //alert(JSON.stringify(data));
+                $("#DIV").html('');
+                var DIV = '';
+                $.each(data, function (i, item) {
+                    var rows = "<tr>" +
+                        "<td id='RegdNo'>" + item.regNo + "</td>" +
+                        "<td id='Name'>" + item.name + "</td>" +
+                        "<td id='Address'>" + item.address + "</td>" +
+                        "<td id='PhoneNo'>" + item.phoneNo + "</td>" +
+                        "<td id='AdmissionDate'>" + Date(item.admissionDate,
+                            "dd-MM-yyyy") + "</td>" +
+                        "</tr>";
+                    $('#Table').append(rows);
+                }); //End of foreach Loop
+                console.log(data);
+            }, //End of AJAX Success function
+
+            failure: function (data) {
+                alert(data.responseText);
+            }, //End of AJAX failure function
+            error: function (data) {
+                alert(data.responseText);
+            } //End of AJAX error function
+
+        });
+    });
+</script>
+
+<div id="DIV">
+    hi
+</div>
+Reference to JQuery
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Test Data from API
+    </div>   <!--en dof panel-heading -->
+    <div class="panel-body">
+        <table class="table table-bordered" id="Table">
+            <tr>
+                <th>Regd No</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone No</th>
+                <th>Admission Date</th>
+            </tr>   <!--end of table-row -->
+        </table>   <!--end of table -->
+    </div> <!--end of Panel-body -->
+</div> <!--end of Panel -->  
+
+
+
+<div>
+
+    @*name<input type="text" id="name" /><br />
+        phone<input type="text" id="ph" /><br />
+        <button id="btn">Post</button>*@
+
+    <script>
+      
+        function makeCSRFExtendedData(data) {
+            var extData = $.extend(data, { "CSRF-TOKEN-MOONGLADE-FORM": $('input[name="CSRF-TOKEN-MOONGLADE-FORM"]').val() });
+            return extData;
+        }
+        $(document).ready(function () {
+        
+            $("#Save").click(function () {
+                var PersonalDetail = new Object();
+                PersonalDetail.Name = $('#name').val();
+                PersonalDetail.Address = $('#surname').val();
+                $.ajax({
+                    url: 'https://localhost:44363/Student/AddStudent',
+                    type: 'POST',
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("XSRF-TOKEN",
+                            $('input:hidden[name="__RequestVerificationToken"]').val());
+                    },
+                    dataType: 'json',
+                    data: PersonalDetail,
+                    success: function (data, textStatus, xhr) {
+                        console.log(data);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log('Error in Operation');
+                    }
+                });
+            });
+        });
+    </script>
+   
+    <form id="form1">
+        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8KW5cuB058RCnNyZSLI7AUjUAtTwe54jQ4Z9Goyn3WKPcpVFYSFUM5J-JDFC3E-MZIUcyR0UnbrvrC_sHv6MbUONStuIMhqDc7i00pQiGkrzf3hK6t5gZFVrjUpyAcargow4zvKU_ISjdPfoLTNF588" />
+
+        Name :- <input type="text" name="Name" id="name" />
+        Surname:- <input type="text" name="Address" id="surname" />
+        <input type="button" id="Save" value="Save Data" />
+    </form>
+
+</div >

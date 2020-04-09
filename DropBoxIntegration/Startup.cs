@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GleamTech.AspNet.Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace CodeTestWebApp
+namespace DropBoxIntegration
 {
     public class Startup
     {
@@ -25,7 +24,6 @@ namespace CodeTestWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddGleamTech();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,7 +41,7 @@ namespace CodeTestWebApp
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseGleamTech();
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -52,7 +50,7 @@ namespace CodeTestWebApp
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Student}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
