@@ -38,6 +38,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnDriveIntegration", "OnDri
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "graphconsoleapp", "graphconsoleapp\graphconsoleapp.csproj", "{10F9B1E3-0C7A-4B5B-BF21-C4889EE4F77D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableExperiments", "TableExperiments\TableExperiments.csproj", "{D13E6EAC-5DD1-429B-A108-578678F5BFE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +106,10 @@ Global
 		{10F9B1E3-0C7A-4B5B-BF21-C4889EE4F77D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10F9B1E3-0C7A-4B5B-BF21-C4889EE4F77D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10F9B1E3-0C7A-4B5B-BF21-C4889EE4F77D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D13E6EAC-5DD1-429B-A108-578678F5BFE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D13E6EAC-5DD1-429B-A108-578678F5BFE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D13E6EAC-5DD1-429B-A108-578678F5BFE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D13E6EAC-5DD1-429B-A108-578678F5BFE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

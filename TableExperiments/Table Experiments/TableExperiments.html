@@ -1,0 +1,94 @@
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<table border=3>
+	<tr>
+       <th><input type="checkbox" id="selectall" name="selectall[]"></th>
+        <th>Name</th>
+         <th>Age</th>
+         <th>PhoneNum</th>
+	 <tr>
+
+	<tr>
+		<td><input type="checkbox" class="case" name="case[]" 
+			value="Vishnu"></td>
+		<td>Vishnu</td>
+		<td>25</td>
+		<td>7736177715</td>
+		<td class="id">90001</td>
+	<tr>
+		
+		<td><input type="checkbox" class="case" name="case[]" 
+			value="Vipin"></td>
+		<td>Vipin</td>
+		<td>25</td>
+		<td>7736177715</td>
+		<td class="id">90002</td>
+	<tr>
+	<tr>
+		
+		<td><input type="checkbox" class="case" name="case[]" 
+			value="Vipin"></td>
+		<td>Vipin</td>
+		<td>25</td>
+		<td>7736177715</td>
+		<td class="id">90002</td>
+	<tr>
+
+</table>
+
+<script>
+var chkArray=new Array();
+
+function myfunc(ele){
+values=new Array();
+var ids=new Array();
+
+$.each($("input[name='case[]']:checked").closest("td").siblings("td.id"), 
+	function(){
+         values.push($(this).text());
+     });
+    alert(values.join(", "));
+}
+
+$(function(){
+$("#selectall").click(function() {
+    $('.case').attr('checked', this.checked);
+    $(".case:checked").each(function() {
+           
+            chkArray.push($(this).val());
+             alert(chkArray.join(", "));
+             $("input.case").click(myfunc);
+        });
+   });
+
+/*$("input[name='selectall[]'").change(function() {
+     alert("Allcheck");
+     
+});
+*/
+
+$(".case").click(function() {
+        if ($(".case").length == $(".case:checked").length) 
+        {
+            $("#selectall").attr("checked", "checked");
+              $("input.case").change(myfunc);
+         }
+        else
+        {
+        $("#selectall").removeAttr("checked");
+        }       
+ });
+$("input.case").click(myfunc);
+
+});
+
+</script>
+</body>
+</html>
+

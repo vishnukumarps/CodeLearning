@@ -1,0 +1,99 @@
+
+<html>
+<head>
+     
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+
+    <script>
+    $(document).ready(function() { 
+        // add multiple select / deselect functionality
+        $("#selectall").click(function() {
+        $('.case').attr('checked', this.checked);
+         });
+         // if all checkbox are selected, check the selectall checkbox     // and viceversa
+         $(".case").click(function() {
+        if ($(".case").length == $(".case:checked").length) {
+        $("#selectall").attr("checked", "checked");
+         }
+        else {
+        $("#selectall").removeAttr("checked");
+         }       
+         });
+     });
+    </script>
+
+</head>
+<body>
+    <h2>
+        Multiple Checkbox Select/Deselect </h2>
+    <table border="1">
+        <tr>
+            <th>
+                <input type="checkbox" id="selectall" />
+            </th>
+            <th>
+                Heading1
+            </th>
+            <th>
+                Heading2
+            </th>
+        </tr>
+        <tr>
+            <td align="center">
+                <input type="checkbox" class="case" name="case" value="1" />
+            </td>
+            <td>
+                Row1
+            </td>
+            <td>
+                Row1
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <input type="checkbox" class="case" name="case" value="2" />
+            </td>
+            <td>
+               Row2
+            </td>
+            <td>
+               Row2
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <input type="checkbox" class="case" name="case" value="3" />
+            </td>
+            <td>
+                Row3
+            </td>
+            <td>
+                Row3
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <input type="checkbox" class="case" name="case" value="4" />
+            </td>
+            <td>
+               Row4
+            </td>
+            <td>
+                Row4
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <input type="checkbox" class="case" name="case" value="5" />
+            </td>
+            <td>
+               Row5
+            </td>
+            <td>
+              Row5
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
